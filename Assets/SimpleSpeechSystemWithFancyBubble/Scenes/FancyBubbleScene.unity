@@ -625,17 +625,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1962898164279716515, guid: 9d9633bf104ffa7469b64149bc2b603c, type: 3}
   m_PrefabInstance: {fileID: 601992768}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &601992770 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4756572264564115106, guid: 9d9633bf104ffa7469b64149bc2b603c, type: 3}
-  m_PrefabInstance: {fileID: 601992768}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c26f6450ca71dea43818a91c2fca790d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &714124246
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,6 +955,17 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &1028824358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 76872851680894017, guid: 9d9633bf104ffa7469b64149bc2b603c, type: 3}
+  m_PrefabInstance: {fileID: 601992768}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26f6450ca71dea43818a91c2fca790d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1477395365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,7 +1193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1673620728 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4756572264564115106, guid: 9d9633bf104ffa7469b64149bc2b603c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 76872851680894017, guid: 9d9633bf104ffa7469b64149bc2b603c, type: 3}
   m_PrefabInstance: {fileID: 1673620726}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -1257,7 +1257,7 @@ PrefabInstance:
     - target: {fileID: 7592133782259250986, guid: 175639ff10d30b646950cbdd307830c3, type: 3}
       propertyPath: bubble_1
       value: 
-      objectReference: {fileID: 601992770}
+      objectReference: {fileID: 1028824358}
     - target: {fileID: 7592133782259250986, guid: 175639ff10d30b646950cbdd307830c3, type: 3}
       propertyPath: bubble_2
       value: 
