@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 639006432577561380}
   - component: {fileID: 988103827838355271}
   - component: {fileID: 3628046857440435732}
-  - component: {fileID: 4756572264564115106}
   m_Layer: 5
   m_Name: SpeechLabel
   m_TagString: Untagged
@@ -34,10 +33,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5897526944318024474}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 269.46, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 164.73, y: -59.940002}
+  m_SizeDelta: {x: 269.46, y: 59.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &639006432577561380
 CanvasRenderer:
@@ -148,27 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba5c1fc3b0cff84e80eb5a83c37edff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4756572264564115106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007655525668435854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c26f6450ca71dea43818a91c2fca790d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterStartSize: 1
-  characterAnimateSpeed: 300
-  bubbleBackground: {fileID: 1436591321500869486}
-  backgroundMinimumHeight: 300
-  backgroundVerticalMargin: 150
-  _isTyping: 0
-  soundVolume: 0.372
-  charSoundEffect: {fileID: 8300000, guid: 577be453f0dd71e469556d20e96f2393, type: 3}
-  soundPitchRandomRange: 0.1
 --- !u!1 &3000128913452069489
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,13 +156,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1962898164279716515}
+  - component: {fileID: 76872851680894017}
   m_Layer: 0
   m_Name: SpeechRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1962898164279716515
 Transform:
   m_ObjectHideFlags: 0
@@ -201,6 +180,27 @@ Transform:
   - {fileID: 4254449407656070977}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &76872851680894017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3000128913452069489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26f6450ca71dea43818a91c2fca790d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterStartSize: 1
+  characterAnimateSpeed: 300
+  bubbleBackground: {fileID: 1436591321500869486}
+  backgroundMinimumHeight: 300
+  backgroundVerticalMargin: 150
+  _isTyping: 0
+  soundVolume: 0.372
+  charSoundEffect: {fileID: 8300000, guid: 577be453f0dd71e469556d20e96f2393, type: 3}
+  soundPitchRandomRange: 0.1
 --- !u!1 &4142629059306409354
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +356,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 329.46, y: 119.880005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5677010312175022580
 CanvasRenderer:

@@ -4,24 +4,19 @@ using UnityEngine;
 
 public class DialogueEntity : MonoBehaviour
 {
-    public enum Diagloguer { Bubble_1, Bubble_2}
+    public enum Diagloguer { Bubble_1, Bubble_2 }
 
     public string DialogueName;
 
     public FancySpeechBubble bubble_1;
-    private GameObject bubble1_Root;
     public FancySpeechBubble bubble_2;
-    private GameObject bubble2_Root;
-    
+
     public List<(Diagloguer, string)> dialogueData = new List<(Diagloguer, string)>();
 
     private int currentIndex = 0;
     private int dialogueLength;
     void Start()
     {
-        bubble1_Root = bubble_1.transform.parent.parent.parent.gameObject;
-        bubble2_Root = bubble_2.transform.parent.parent.parent.gameObject;
-
         dialogueData.Clear();
         foreach (var pair in inspectorDialogue)
         {
@@ -29,28 +24,37 @@ public class DialogueEntity : MonoBehaviour
         }
         dialogueLength = dialogueData.Count;
 
-        bubble1_Root.SetActive(false);
-        bubble2_Root.SetActive(false);
+        bubble_1.gameObject.SetActive(false);
+        bubble_2.gameObject.SetActive(false);
 
     }
     public IEnumerator AdvanceDialogue()
     {
         if (currentIndex >= dialogueLength)
         {
-            bubble_1.Set("");
-            bubble_2.Set("");
-            yield return StartCoroutine(HideBothBubble(bubble1_Root, bubble2_Root));            
+            if (bubble_1.gameObject.activeSelf)
+            {
+                bubble_1.Set("");
+                yield return StartCoroutine(HideBubble(bubble_1.gameObject));
+            }
+            if (bubble_2.gameObject.activeSelf)
+            {
+                bubble_2.Set("");
+                yield return StartCoroutine(HideBubble(bubble_2.gameObject));
+            }
+                
+            //yield return StartCoroutine(HideBothBubble(bubble_1.gameObject, bubble_2.gameObject));
             currentIndex = 0;
             yield break;
         }
 
         // check if pre typing is finish if no return
-        if(currentIndex > 0)
+        if (currentIndex > 0)
         {
             Diagloguer preSpeaker = dialogueData[currentIndex - 1].Item1;
             string preText = dialogueData[currentIndex - 1].Item2;
 
-            FancySpeechBubble preSpeechBubble = preSpeaker == Diagloguer.Bubble_1? bubble_1 : bubble_2;
+            FancySpeechBubble preSpeechBubble = preSpeaker == Diagloguer.Bubble_1 ? bubble_1 : bubble_2;
             if (preSpeechBubble._isTyping)
             {
                 FinishBubble(preSpeechBubble, preText);
@@ -62,14 +66,20 @@ public class DialogueEntity : MonoBehaviour
         string text = dialogueData[currentIndex].Item2;
         if (curSpeaker == Diagloguer.Bubble_1)
         {
-            if (!bubble1_Root.activeSelf)
-                yield return StartCoroutine(ShowBubble(bubble1_Root));
+            if (bubble_2.gameObject.activeSelf)
+                yield return StartCoroutine(HideBubble(bubble_2.gameObject));
+
+            if (!bubble_1.gameObject.activeSelf)
+                yield return StartCoroutine(ShowBubble(bubble_1.gameObject));
             bubble_1.Set(text);
         }
         else if (curSpeaker == Diagloguer.Bubble_2)
         {
-            if (!bubble2_Root.activeSelf)
-                yield return StartCoroutine(ShowBubble(bubble2_Root));
+            if (bubble_1.gameObject.activeSelf)
+                yield return StartCoroutine(HideBubble(bubble_1.gameObject));
+
+            if (!bubble_2.gameObject.activeSelf)
+                yield return StartCoroutine(ShowBubble(bubble_2.gameObject));
             bubble_2.Set(text);
         }
         else
@@ -78,10 +88,6 @@ public class DialogueEntity : MonoBehaviour
         }
 
         currentIndex++;
-    }
-    private void Update()
-    {
-        
     }
     [System.Serializable]
     public class DialoguePair
